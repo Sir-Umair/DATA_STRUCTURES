@@ -95,6 +95,35 @@ def mergesort(arr):
     sorted_arr = merge_sort_inner(arr)
     print("Sorted array:", sorted_arr)
     print("Total Steps:", steps[0])
+# BUCKET SORT
+def bucket_sort(arr):
+    print("\n--- Bucket Sort ---")
+    buckets = [[] for _ in range(len(arr))]
+
+    # Step 1: Distribute elements into buckets
+    for num in arr:
+        index = int(num * len(arr))
+        print(f"Placing {num} in bucket {index}")
+        buckets[index].append(num)
+
+    # Step 2: Sort each bucket
+    for i in range(len(buckets)):
+        buckets[i].sort()
+        print(f"Sorted Bucket {i}: {buckets[i]}")
+
+    # Step 3: Concatenate all buckets
+    sorted_array = []
+    for bucket in buckets:
+        sorted_array.extend(bucket)
+
+    print("Sorted array:", sorted_array)
+    return sorted_array
+
+# Main Code
+data = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
+print("Original Array:", data)
+bucket_sort(data)
+ 
 
 # Main Code
 data = [10, 7, 4, 9, 77, 44]
