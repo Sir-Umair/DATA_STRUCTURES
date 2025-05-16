@@ -5,17 +5,21 @@ class Node:
         self.right = None
 
 # Create the tree with string values
+# Root
 g = Node("a")
 g.left = Node("b")
 g.right = Node("c")
+
+# Left subtree
 g.left.left = Node("d")
 g.left.right = Node("e")
-g.left.left.left = Node("h")
-g.right.left = Node("f")
-g.right.right = Node("g")
-g.right.left.right = Node("i")
-g.right.right.left = Node("j")
+g.left.right.right = Node("h")     # h is right child of e
 
+# Right subtree
+g.right.left = Node("f")           # f is left child of c
+g.right.left.left = Node("i")      # i is left child of f
+g.right.right = Node("g")          # g is right child of c
+g.right.right.left = Node("j")
 
 # Inorder: Left → Root → Right
 def inorder(node):
